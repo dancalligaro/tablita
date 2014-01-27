@@ -439,11 +439,12 @@ $("#doMagic").click(function(){
             for(var j = 0; j<9; j++){
                 var y = Math.floor(j/3);
                 var x = j - y * 3;
-                $('#chips table:eq('+i+') tr:eq('+y+') td:eq('+x+')').css('background', piezaInfo.pieza[j] === "0" ? chipsColors[results[0].orden[i]] : null );
+                $('#chips table:eq('+i+') tr:eq('+y+') td:eq('+x+')').css('background', piezaInfo.pieza[j] === "0" ? chipsColors[results[0].orden[i]] : '' );
             }
         }
 
     }else{
+        $('#chips tr td').css('background', '');
         alert('no results');
     }
 
