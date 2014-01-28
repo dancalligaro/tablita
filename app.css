@@ -49,6 +49,7 @@ button{
 
 #results{
     position: relative;
+    margin-left: 350px;
 }
 
 #baseResults{
@@ -59,4 +60,9 @@ button{
     position: relative;
     height: 630px;
     width: 500px;
+}
+
+#controls{
+    width: 300px;
+    position: absolute;
 }
