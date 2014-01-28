@@ -11,10 +11,8 @@
     width: 600px;
     height: 600px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -300px;
-    margin-left: -300px;
+    top: 0;
+    left: 0;
 }
 
 .board table, .chips table{
@@ -59,6 +57,6 @@ button{
 
 .result{
     position: relative;
-    height: 500px;
+    height: 630px;
     width: 500px;
 }

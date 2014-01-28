@@ -194,31 +194,7 @@ function matchObjective(objective, pz){
 
 }
 
-
-var board = [
-    [
-        [0, null, 1],
-        [2, 3, 2],
-        [4, 1, 0]
-    ],
-    [
-        [3, null, 1],
-        [null, 2, 0],
-        [1, 4, 3]
-    ],
-    [
-        [4, 0, 2],
-        [3, null, 3],
-        [1, null, 4]
-    ],
-    [
-        [null, null, null],
-        [null, 4, 1],
-        [3, 0, 2]
-    ]
-];
-
-board = recreateBoard();
+var board = recreateBoard();
 
 function recreateBoard(){
     var i,j,b, board = [];
@@ -252,127 +228,6 @@ var chipsColors = [
     '#a80000',
     '#dccf00',
     '#323232', //Negro
-];
-
-var chips = [
-    [
-        [
-            [1, 0, 1],
-            [1, 1, 1],
-            [1, 0, 1]
-        ],
-        [
-            [1, 1, 1],
-            [0, 1, 0],
-            [1, 1, 1]
-        ]
-    ],
-    [
-        [
-            [1, 0, 1],
-            [1, 0, 1],
-            [1, 1, 1]
-        ],
-        [
-            [1, 1, 1],
-            [1, 0, 0],
-            [1, 1, 1]
-        ],
-        [
-            [1, 1, 1],
-            [1, 0, 1],
-            [1, 0, 1]
-        ],
-        [
-            [1, 1, 1],
-            [0, 0, 1],
-            [1, 1, 1]
-        ]
-    ],
-    [
-        [
-            [1, 1, 0],
-            [1, 1, 1],
-            [1, 0, 1]
-        ],
-        [
-            [1, 1, 1],
-            [0, 1, 1],
-            [1, 1, 0]
-        ],
-        [
-            [1, 0, 1],
-            [1, 1, 1],
-            [0, 1, 1]
-        ],
-        [
-            [0, 1, 1],
-            [1, 1, 0],
-            [1, 1, 1]
-        ],
-        [
-            [0, 1, 1],
-            [1, 1, 1],
-            [1, 0, 1]
-        ],
-        [
-            [1, 1, 0],
-            [0, 1, 1],
-            [1, 1, 1]
-        ],
-        [
-            [1, 0, 1],
-            [1, 1, 1],
-            [1, 1, 0]
-        ],
-        [
-            [1, 1, 1],
-            [1, 1, 0],
-            [0, 1, 1]
-        ]
-    ],
-    [
-        [
-            [0, 1, 1],
-            [1, 1, 0],
-            [1, 1, 0]
-        ],
-        [
-            [1, 1, 0],
-            [1, 1, 1],
-            [0, 0, 1]
-        ],
-        [
-            [0, 1, 1],
-            [0, 1, 1],
-            [1, 1, 0]
-        ],
-        [
-            [1, 0, 0],
-            [1, 1, 1],
-            [0, 1, 1]
-        ],
-        [
-            [1, 1, 0],
-            [0, 1, 1],
-            [0, 1, 1]
-        ],
-        [
-            [0, 0, 1],
-            [1, 1, 1],
-            [1, 1, 0]
-        ],
-        [
-            [1, 1, 0],
-            [1, 1, 0],
-            [0, 1, 1]
-        ],
-        [
-            [0, 1, 1],
-            [1, 1, 1],
-            [1, 0, 0]
-        ]
-    ]
 ];
 
 //DIBUJO TABLA
@@ -410,7 +265,7 @@ $('#card').html(table);
     for(cell in board){
         for(y in board[cell]){
             for(x in board[cell][y]){
-                $('#board table:eq('+cell+') tr:eq('+y+') td:eq('+x+')').css('background', colors[board[cell][y][x]] || '#6b470f');
+                $('.board table:eq('+cell+') tr:eq('+y+') td:eq('+x+')').css('background', colors[board[cell][y][x]] || '#6b470f');
             }
         }
     }
@@ -436,8 +291,11 @@ $("#doMagic").click(function(){
 
     if(results.length > 0){
 
+        $("#results").append("<h1>Found " + results.length + " possible combinations</h1>");
+
         for(var nres = 0 ; nres< results.length ; nres++){
 
+            $("#results").append("<h2>Combination " + (nres + 1) + "</h2>");
             $("#results").append('<div class="result">' + $('#baseResults').html() + '</div>');
 
             for(var i = 0;i<4;i++){
