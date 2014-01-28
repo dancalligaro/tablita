@@ -393,8 +393,8 @@ for(var i=0; i<2; i++){
     table += '</tr>';
 }
 
-$('#board').html(table);
-$('#chips').html(table);
+$('.board').html(table);
+$('.chips').html(table);
 
 table = '';
 for(var i in colors){
@@ -421,6 +421,7 @@ $('#card').html(table);
 
 $("#doMagic").click(function(){
 
+    $("#results").html("");
 
     var objective = {};
 
@@ -434,14 +435,22 @@ $("#doMagic").click(function(){
     var results = check(objective)
 
     if(results.length > 0){
-        for(var i = 0;i<4;i++){
-            var piezaInfo = allPiezas[results[0].orden[i]][results[0].rotaciones[i]]
-            for(var j = 0; j<9; j++){
-                var y = Math.floor(j/3);
-                var x = j - y * 3;
-                $('#chips table:eq('+i+') tr:eq('+y+') td:eq('+x+')').css('background', piezaInfo.pieza[j] === "0" ? chipsColors[results[0].orden[i]] : '' );
+
+        for(var nres = 0 ; nres< results.length ; nres++){
+
+            $("#results").append('<div class="result">' + $('#baseResults').html() + '</div>');
+
+            for(var i = 0;i<4;i++){
+                var piezaInfo = allPiezas[results[nres].orden[i]][results[nres].rotaciones[i]]
+                for(var j = 0; j<9; j++){
+                    var y = Math.floor(j/3);
+                    var x = j - y * 3;
+                    $('.chips:eq('+ nres +') table:eq('+i+') tr:eq('+y+') td:eq('+x+')').css('background', piezaInfo.pieza[j] === "0" ? chipsColors[results[nres].orden[i]] : '' );
+                }
             }
+            
         }
+
 
     }else{
         $('#chips tr td').css('background', '');

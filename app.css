@@ -1,13 +1,13 @@
-#board{
+.board{
     z-index: 0;
     background: #6b470f;
 }
 
-#chips{
+.chips{
     z-index: 10;
 }
 
-#board, #chips{
+.board, .chips{
     width: 600px;
     height: 600px;
     position: absolute;
@@ -17,14 +17,14 @@
     margin-left: -300px;
 }
 
-#board table, #chips table{
+.board table, .chips table{
     width: 100%;
     height: 100%;
     border-spacing: 0;
     padding: 20px;
 }
 
-#board table td{
+.board table td{
     border: solid 10px #6b470f;
     border-radius: 100%;
     /*box-shadow: inset 0 0 40px #000;*/
@@ -47,4 +47,18 @@ button{
     height: 100px;
     margin: 50px;
     font-size: 14px;
+}
+
+#results{
+    position: relative;
+}
+
+#baseResults{
+    display: none;
+}
+
+.result{
+    position: relative;
+    height: 500px;
+    width: 500px;
 }
